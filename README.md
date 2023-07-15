@@ -1,41 +1,31 @@
 # Project Title
 
-Simple overview of use/purpose.
+Degen Gaming
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+The Degen Token is an ERC20-compliant token smart contract written in Solidity. It allows users to transfer and manage tokens on the Ethereum blockchain. The contract supports functionalities such as transferring tokens, approving token transfers, minting new tokens, redeeming tokens, and burning tokens.
 
 ## Getting Started
 
-### Installing
+### Network Setup
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+Fuji Testnet Settings:
+  Network Name: ```Avalanche Fuji C-Chain```
+  New RPC URL: ```https://api.avax-test.network/ext/bc/C/rpc```
+  ChainID: ```43113```
+  Symbol: ```AVAX```
+  Explorer: ```https://testnet.snowtrace.io/```
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+1. Connect Remix IDE with MetaMask Wallet by changing environment to Inject provider.
+2. Deploy the contract in the Avalanche network
+3. Get the API key from ```snowtracer.io```
+4. Get the contract verified. You'd need Contract address, compiler versoin, API key and contract name.
+5. Perform operations
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+Ankit Kunwar
+[@ankit04k](https://twitter.com/Ankit04K)
