@@ -11,10 +11,15 @@ The Degen Token is an ERC20-compliant token smart contract written in Solidity. 
 ### Network Setup
 
 Fuji Testnet Settings:
+  
   Network Name: ```Avalanche Fuji C-Chain```
+  
   New RPC URL: ```https://api.avax-test.network/ext/bc/C/rpc```
+  
   ChainID: ```43113```
+  
   Symbol: ```AVAX```
+  
   Explorer: ```https://testnet.snowtrace.io/```
 
 ### Executing program
