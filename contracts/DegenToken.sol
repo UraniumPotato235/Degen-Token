@@ -7,18 +7,18 @@ contract DegenToken {
     uint256 public totalSupply;
     address public owner;
 
-    mapping(address => uint256) public balances;
+    mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "You are not the owner");
+        require(msg.sender == owner, "Yiu are not the owner");
         _;
     }
 
-    constructor() 
-    {
-        name = "Degen";
+    constructor(
+    ) {
+        name = "degen";
         symbol = "DEG";
         owner = msg.sender;
         
@@ -26,10 +26,10 @@ contract DegenToken {
 
     function transfer(address _to, uint256 _value) external returns (bool success) {
         require(_to != address(0), "Invalid recipient address");
-        require(_value <= balances[msg.sender], "Insufficient balance");
+        require(_value <= balanceOf[msg.sender], "Not enough Degens available");
 
-        balances[msg.sender] -= _value;
-        balances[_to] += _value;
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += _value;
 
     
         return true;
@@ -45,11 +45,11 @@ contract DegenToken {
 
     function transferFrom(address _from, address _to, uint256 _value) external returns (bool success) {
         require(_to != address(0), "Invalid recipient address");
-        require(_value <= balances[_from], "Insufficient balance");
-        require(_value <= allowance[_from][msg.sender], "Insufficient allowance");
+        require(_value <= balanceOf[_from], "Not enough Degens available");
+        require(_value <= allowance[_from][msg.sender], "Not enough Degens available");
 
-        balances[_from] -= _value;
-        balances[_to] += _value;
+        balanceOf[_from] -= _value;
+        balanceOf[_to] += _value;
         allowance[_from][msg.sender] -= _value;
 
         return true;
@@ -58,25 +58,25 @@ contract DegenToken {
     function mint(address _to, uint256 _value) external onlyOwner returns (bool success) {
         require(_to != address(0), "Invalid recipient address");
 
-        balances[_to] += _value;
+        balanceOf[_to] += _value;
         totalSupply += _value;
 
         return true;
     }
 
     function redeem(uint256 _value) external returns (bool success) {
-        require(_value <= balances[msg.sender], "Insufficient balance");
+        require(_value <= balanceOf[msg.sender], "Not enough Degens available");
 
-        balances[msg.sender] -= _value;
+        balanceOf[msg.sender] -= _value;
         totalSupply -= _value;
 
         return true;
     }
 
     function burn(uint256 _value) external returns (bool success) {
-        require(_value <= balances[msg.sender], "Insufficient balance");
+        require(_value <= balanceOf[msg.sender], "Not enough Degens available");
 
-        balances[msg.sender] -= _value;
+        balanceOf[msg.sender] -= _value;
         totalSupply -= _value;
 
         return true;
